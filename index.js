@@ -1,3 +1,14 @@
+const express = require("express");
+const app = express();
+const cors = require("cors");
+const pool = require("./db");
+
+//middlewarte
+app.use(cors());
+app.use(express.json());
+
+
+
 const http = require("http");
 
 const server = http.createServer((req, res) => {
