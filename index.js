@@ -9,12 +9,20 @@ app.use(express.json());
 
 
 
-const http = require("http");
 
-const server = http.createServer((req, res) => {
-    res.writeHead(200, { "Content-Type": "text/plain" });
-    res.end("Hello World");
+
+// Replace the HTTP server code with this:
+app.get("/", (req, res) => {
+    res.send("Hello World");
 });
+
+
+// const http = require("http");
+
+// const server = http.createServer((req, res) => {
+//     res.writeHead(200, { "Content-Type": "text/plain" });
+//     res.end("Hello World");
+// });
 
 const PORT = process.env.PORT || 3000;
 
