@@ -1,0 +1,5 @@
+CREATE DATABASE try;
+CREATE TABLE try(
+    id SERIAL PRIMARY KEY,
+    hello VARCHAR(255) 
+);

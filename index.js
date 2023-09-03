@@ -9,7 +9,7 @@ app.use(express.json());
 
 // Define a sample route for the root path ("/")
 app.get("/", (req, res) => {
-    res.send("Hllo, World!");
+    res.send("Hello, World!");
 });
 
 // Define the "/hello" route with a JSON response
@@ -24,8 +24,22 @@ app.get("/hello", (req, res) => {
     res.json(responseObject);
 });
 
-{
-    let PORT = process.env.PORT || 3000;
+app.post("/hello", async (req, res) => {
+    try {
+        const { hello } = req.body;
+        const data = await pool.query(
+            "INSERT INTO try(id,hello) VALUES(default, $1) RETURNING *",
+            [hello]
+        );
+        res.json(data.rows[0]);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "An error occurred" });
+    }
+});
 
-    app.listen(PORT, () => console.log("server is running"));
-}
+
+// Start the server
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
