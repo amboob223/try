@@ -16,6 +16,12 @@ app.get("/", (req, res) => {
     res.send("Hell World");
 });
 
+app.post("/hello", (req, res) => {
+    const { hello } = req.body
+    res.send(hello)
+
+})
+
 
 // const http = require("http");
 
