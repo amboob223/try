@@ -7,36 +7,24 @@ const pool = require("./db");
 app.use(cors());
 app.use(express.json());
 
-
-
-
-
-// Replace the HTTP server code with this:
+// Define a sample route for the root path ("/")
 app.get("/", (req, res) => {
-    res.send("Help World");
+    res.send("Hello, World!");
 });
 
-
-
+// Define the "/hello" route with a JSON response
 app.get("/hello", (req, res) => {
-    const { main } = req.body; // Extract data from query parameters
-    
-    res.json({main});
+    const responseObject = {
+        message: "Hello from the /hello route!",
+        data: {
+            key1: "value1",
+            key2: "value2"
+        }
+    };
+    res.json(responseObject);
 });
 
-https://codevolution-demo-8o2k.onrender.com/hello?main=World
-
-
-
-// const http = require("http");
-
-// const server = http.createServer((req, res) => {
-//     res.writeHead(200, { "Content-Type": "text/plain" });
-//     res.end("Hello World");
-// });
-
-{
-    let PORT = process.env.PORT || 3000;
-
-    app.listen(PORT, () => console.log("server is running"));
-}
+// Start the server
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
