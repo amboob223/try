@@ -13,7 +13,7 @@ app.use(express.json());
 
 // Replace the HTTP server code with this:
 app.get("/", (req, res) => {
-    res.send("Hello World");
+    res.send("Hell World");
 });
 
 
