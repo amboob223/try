@@ -24,7 +24,8 @@ app.get("/hello", (req, res) => {
     res.json(responseObject);
 });
 
-// Start the server
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});
+{
+    let PORT = process.env.PORT || 3000;
+
+    app.listen(PORT, () => console.log("server is running"));
+}
