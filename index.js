@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
     res.send("Help World");
 });
 
-app.post("/hello", (req, res) => {
+app.get("/hello", (req, res) => {
     const { hello } = req.body;
     res.json({ message: hello }); // Respond with JSON
 });
