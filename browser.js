@@ -1,5 +1,7 @@
+const main = document.getElementById("main");
+
 const body = {
-    word: "HELLO"
+    main: main.value
 };
 
 fetch("https://codevolution-demo-8o2k.onrender.com/hello", {

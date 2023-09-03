@@ -16,11 +16,14 @@ app.get("/", (req, res) => {
     res.send("Help World");
 });
 
-app.get("/hello", (req, res) => {
-    const { hello } = req.query; // Extract data from query parameters
-    res.json({ message: hello });
+
+
+app.post("/hello", (req, res) => {
+    const { main } = req.body; // Extract data from query parameters
+    res.json({ message: main });
 });
 
+https://codevolution-demo-8o2k.onrender.com/hello?hello=World
 
 
 
