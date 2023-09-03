@@ -17,9 +17,10 @@ app.get("/", (req, res) => {
 });
 
 app.get("/hello", (req, res) => {
-    const { hello } = req.body;
-    res.json({ message: hello }); // Respond with JSON
+    const { hello } = req.query; // Extract data from query parameters
+    res.json({ message: hello });
 });
+
 
 
 
