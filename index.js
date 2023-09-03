@@ -39,7 +39,10 @@ app.post("/hello", async (req, res) => {
 });
 
 
-// Start the server
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});
+{
+    const PORT = process.env.PORT || 3000
+    // Start the server
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+}
