@@ -19,8 +19,9 @@ app.get("/", (req, res) => {
 
 
 app.get("/hello", (req, res) => {
-    const { main } = req.query; // Extract data from query parameters
-    res.json({ message: main });
+    const { main } = req.body; // Extract data from query parameters
+    
+    res.json({main});
 });
 
 https://codevolution-demo-8o2k.onrender.com/hello?main=World
