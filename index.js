@@ -13,14 +13,14 @@ app.use(express.json());
 
 // Replace the HTTP server code with this:
 app.get("/", (req, res) => {
-    res.send("Hell World");
+    res.send("Help World");
 });
 
 app.post("/hello", (req, res) => {
-    const { hello } = req.body
-    res.send(hello)
+    const { hello } = req.body;
+    res.json({ message: hello }); // Respond with JSON
+});
 
-})
 
 
 // const http = require("http");
