@@ -23,7 +23,7 @@ app.get("/hello", (req, res) => {
     res.json({ message: main });
 });
 
-https://codevolution-demo-8o2k.onrender.com/hello?hello=World
+https://codevolution-demo-8o2k.onrender.com/hello?main=World
 
 
 
