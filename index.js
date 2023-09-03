@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 
 
 app.get("/hello", (req, res) => {
-    const { main } = req.body; // Extract data from query parameters
+    const { main } = req.query; // Extract data from query parameters
     res.json({ message: main });
 });
 
