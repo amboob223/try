@@ -20,7 +20,7 @@ btn.addEventListener("click", async (event) => {
             }).catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
             });
-console.log("word")
+
     } catch (error) {
         console.log(error)
     }
