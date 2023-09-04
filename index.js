@@ -9,7 +9,7 @@ app.use(express.json());
 
 // Define a sample route for the root path ("/")
 app.get("/", (req, res) => {
-    res.send("Hello, World!");
+    res.send("Help World!");
 });
 
 // Define the "/hello" route with a JSON response
