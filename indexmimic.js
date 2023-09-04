@@ -1,9 +1,20 @@
-const express = require("express");
-const app = express();
-const cors = require("cors");
-const pool = require("./db");
+import express from "express";
+import cors from "cors";
+import { Pool } from "pg";
 
-//middlewarte
+const app = express();
+const port = process.env.PORT || 3000;
+
+// PostgreSQL database configuration
+const pool = new Pool({
+    user: "your_db_user",
+    password: "your_db_password",
+    host: "your_db_host",
+    database: "your_db_name",
+    port: 5432, // Default PostgreSQL port
+});
+
+// Middleware
 app.use(cors());
 app.use(express.json());
 
@@ -18,18 +29,19 @@ app.get("/hello", (req, res) => {
         message: "Hello from the /hello route!",
         data: {
             key1: "value1",
-            key2: "value2"
-        }
+            key2: "value2",
+        },
     };
     res.json(responseObject);
 });
 
+// Define a POST route to insert data into the database
 app.post("/hello", async (req, res) => {
     try {
-        const { main } = req.body;
+        const { hello } = req.body;
         const data = await pool.query(
             "INSERT INTO try(id,hello) VALUES(default, $1) RETURNING *",
-            [main]
+            [hello]
         );
         res.json(data.rows[0]);
     } catch (error) {
@@ -38,11 +50,7 @@ app.post("/hello", async (req, res) => {
     }
 });
 
-
-{
-    const PORT = process.env.PORT || 3000
-    // Start the server
-    app.listen(PORT, () => {
-        console.log(`Server is running on port ${port}`);
-    });
-}
+// Start the server
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});

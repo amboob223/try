@@ -12,7 +12,6 @@ fetch("https://codevolution-demo-8o2k.onrender.com/hello", {
     .then(response => response.json())
     .then(data => {
         console.log(data);
-    })
-    .catch(error => {
+    }).catch(error => {
         console.error('There was a problem with the fetch operation:', error);
     });
